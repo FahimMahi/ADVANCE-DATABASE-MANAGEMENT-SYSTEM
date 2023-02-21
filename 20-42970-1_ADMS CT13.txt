@@ -1,0 +1,117 @@
+Name : Fahim Mahmud Bhuiyan 
+ID: 20-42970-1
+Section: B
+
+
+____________________(Part 01:)__________________________
+_______________________(1)______________________________
+
+DECLARE 
+a number:=:a;
+b number:=:b;
+c number;
+BEGIN
+c:=a*b;
+dbms_output.put_line(c);
+END
+/
+
+
+_______________________(2)______________________________
+
+DECLARE 
+a number (5) :=:a; 
+b number (5) :=:b;
+c number (5) := a+b;
+BEGIN 
+case
+WHEN a = b then 
+dbms_output.put_line('a is equal to b. Sum: ' || c);
+ELSE
+dbms_output.put_line('a is not equal to b');
+END case;
+END; 
+/
+
+
+_______________________(3)______________________________
+
+DECLARE 
+a number (5) :=:a; 
+b number (5) :=:b;
+BEGIN 
+IF (a = b) then 
+dbms_output.put_line('a is equal to b.');
+ELSIF (a > b) then
+dbms_output.put_line('a is greater than b.');
+ELSIF (a < b) then
+dbms_output.put_line('a is less than b.');
+ELSE
+dbms_output.put_line('a is not equal to b');
+END IF; 
+END; 
+/
+
+
+_______________________(4)______________________________
+
+DECLARE 
+a number:=:a;
+b number:=:b;
+c number;
+BEGIN
+c:=a*b;
+IF(c < 100) then
+dbms_output.put_line('Hi');
+ELSIF (c > 100) then
+dbms_output.put_line('Bye');
+ELSE
+dbms_output.put_line('ADMBS');
+END IF; 
+END; 
+/
+
+
+_______________________(5)______________________________
+
+DECLARE 
+a number (5) :=:a; 
+b number (5) :=:b;
+BEGIN 
+case
+WHEN a = b then 
+dbms_output.put_line('a is equal to b.');
+ELSE
+dbms_output.put_line('a is not equal to b');
+END case;
+END; 
+/
+
+
+
+____________________(Part 02:)__________________________
+_______________________(6)______________________________
+
+DECLARE
+  EMPNOO EMP.EMPNO%TYPE number :=: EMPNOO;
+  salary  EMP.SAL%TYPE;
+BEGIN  
+SELECT sal INTO salary FROM emp
+  WHERE ename = 'ALLEN';
+ IF salary < 2000 THEN
+    dbms_output.put_line('SALARY GREATER THAN 2000');
+ ELSE
+  dbms_output.put_line('SALARY LESS THAN 2000');
+ END IF;
+END;
+
+
+
+
+____________________(Part 03:)__________________________
+
+___________________(Find the output)____________________
+_______________________(11)_____________________________
+
+10
+-10

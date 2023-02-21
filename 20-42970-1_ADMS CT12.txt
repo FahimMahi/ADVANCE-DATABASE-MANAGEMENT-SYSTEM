@@ -1,0 +1,113 @@
+Name : Fahim Mahmud Bhuiyan 
+ID: 20-42970-1
+Section: B
+
+
+____________________(Part A:)___________________________
+_______________________(1)______________________________
+
+BEGIN
+dbms_output.put_line('Hello ADBMS Section B');
+END;
+/
+
+_______________________(2)______________________________
+Declare
+var_sum number;
+BEGIN
+   Declare
+   var_num1 number:=130;
+   var_num2 number:=240;
+   BEGIN
+   var_sum:=var_num1+var_num2;
+   END;
+dbms_output.put_line(var_sum);
+END;
+/
+
+_____________________(3)_________________________________
+Declare
+var_mul number;
+var_num1 number:=130;
+var_num2 number:=240;
+var_num3 number:=130;
+BEGIN
+var_mul:=var_num1*var_num2*var_num3;   
+dbms_output.put_line(var_mul);
+END;
+/
+
+______________________(4)________________________________
+Declare
+var_str varchar2(30):='Hello World';
+BEGIN
+dbms_output.put_line(var_str);
+END;
+/
+
+______________________(5)________________________________
+Declare
+var_sub number;
+BEGIN
+   Declare
+   var_num1 number:=240;
+   var_num2 number:=160;
+   BEGIN
+   var_sub:=var_num1-var_num2;
+   END;
+dbms_output.put_line(var_sub);
+END;
+/
+
+
+______________________(6)________________________________
+Declare
+var_avg number;
+var_num1 number:=10;
+var_num2 number:=14;
+var_num3 number:=16;
+var_num4 number:=18;
+BEGIN
+var_avg:=(var_num1+var_num2+var_num3+var_num4)/4;
+dbms_output.put_line(var_avg);
+END;
+/
+
+______________________(7)_____________________________
+Declare
+var_pi CONSTANT number:=3.1416;
+BEGIN
+dbms_output.put_line(var_pi);
+END;
+/
+
+
+
+____________________(Part B:)___________________________
+_______________________(1)______________________________
+
+select dname from dept where deptno=10; 
+
+_______________________(2)______________________________
+
+select LOWER(dname) from dept where deptno=20; 
+
+_______________________(3)______________________________
+
+select SAL+250 FROM EMP;
+
+_______________________(4)______________________________
+
+select HIREDATE FROM EMP where ENAME = 'KING';
+
+_______________________(5)______________________________
+
+select SUM(SAL) FROM EMP;
+
+_______________________(6)______________________________
+
+select SAL, COMM FROM EMP where ENAME = 'ALLEN';
+
+_______________________(7)______________________________
+
+select ENAME FROM EMP where ENAME LIKE '%TT%';

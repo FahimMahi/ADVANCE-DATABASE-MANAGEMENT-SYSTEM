@@ -1,0 +1,33 @@
+Name: Bhuiyan, Fahim Mahmud
+ID: 20-42970-1
+Section: B
+
+1) create sequence S_Id
+increment by 5
+start with 2
+MAXVALUE 97
+NOCACHE
+NOCYCLE;
+
+2) create INDEX stu
+on Student (S_ID, S_Name);
+
+3) select S_Id
+from Student
+where id > (select S_Id
+from Student=17);
+
+4) select Student.S_Name, House.H_Name
+from Student, House
+where Student.H_No= House.H_No;
+
+5) create view sname
+as select S_Name
+from Student;
+
+6) DROP VIEW sname;
+
+7) rollback;
+
+8) create synonym stu_name
+for sname;

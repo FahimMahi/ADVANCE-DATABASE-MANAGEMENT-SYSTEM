@@ -1,0 +1,53 @@
+Name : Fahim Mahmud Bhuiyan 
+ID: 20-42970-1
+Section: B
+
+
+___________________________________________________________________(Table Creation)____________________________________________________________________________
+
+create table actors(id number(10) primary key,a_name varchar2(20),sal number(5) check(sal between 0 and 10000),gender varchar2(5),makeupArtitst_id number(10)); 
+
+create table MakeupArtist(makeupArtitst_id number(10) primary key,m_name varchar2(20),m_salary number(5) check(sal between 0 and  10000)); 
+
+alter table actors add constraint mk_id foreign key(makeupArtitst_id ) references MakeupArtist011(makeupArtitst_id); 
+
+
+
+___________________(Data Insertion)_________________________
+
+___________________(Actors table:)__________________________
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (2,'Monica',7000,'F',11); 
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (6,'Ross',6500,'M',11); 
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (8,'Chandler',8000,'M',22); 
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (10,'Rachel',8500,'F',22); 
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (12,'Joey',7000,'M',33); 
+
+insert into actors(id ,a_name,sal ,gender ,makeupArtitst_id) 
+values (14,'Pheobe',6500,'F',33); 
+
+
+__________________(MakeupArtist Table:)_____________________
+
+insert into MakeupArtist(makeupArtitst_id ,m_name ,m_salary)
+values (11,'Jhon',3000); 
+
+insert into MakeupArtist(makeupArtitst_id ,m_name ,m_salary) 
+values (22,'Jesica',6500); 
+
+insert into MakeupArtist(makeupArtitst_id ,m_name ,m_salary) 
+values (33,'Taylor',2500); 
+
+
+
+_________________________________________________(Display)____________________________________________________
+select a_name,m_name from Actors,MakeupArtist where Actors.makeupArtitst_id = MakeupArtist011.makeupArtitst_id;

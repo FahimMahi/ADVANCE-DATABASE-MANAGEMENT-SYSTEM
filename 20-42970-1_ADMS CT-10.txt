@@ -1,0 +1,22 @@
+Name: Bhuiyan, Fahim Mahmud
+ID: 20-42970-1
+Section: B
+
+1) select S_Name, S_CGPA, S_CGPA-0.5 FROM Student_info;
+
+2) select country||country_code as "Country_info" from Address;
+
+3) select S_Name as "Student Name", S_BloodGroup as "Student Blood Status" from Student_info;
+
+4) select * from Student_info where S_Name Like "%O%";
+
+5) select S_Name, S_CGPA from Student_info where S_CGPA is null;
+
+6) select city, country, Country_code from Address order by Country_code desc;
+
+7) select S_Name, CONCAT(S_NAME, S_BloodStatus) from Student_info 
+where substr (S_BloodStatus,1,9) = 'Pureblood';
+
+8) select S_Name, NVL(S_CGPA,0), NVL(S_BloodStatus,'No Blood Status') FROM Student_info;
+
+9) SELECT MAX(S_CGPA) FROM Student_info;

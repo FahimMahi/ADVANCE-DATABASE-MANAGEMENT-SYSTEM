@@ -1,0 +1,78 @@
+Name: Bhuiyan, Fahim Mahmud
+ID: 20-42970-1
+Section: B
+
+1) create table Department (
+D_ID int, D_NAME varchar(255)
+);
+
+INSERT INTO Department (D_NAME)
+VALUES ('CS');
+
+INSERT INTO Department (D_NAME)
+VALUES ('EEE');
+
+INSERT INTO Department (D_NAME)
+VALUES ('BBA');
+
+INSERT INTO Department (D_NAME)
+VALUES ('LAW');
+
+INSERT INTO Department (D_NAME)
+VALUES ('ENGLISH');
+
+
+create table Teacher (
+T_ID int, T_NAME varchar(255), SKILL varchar(255), D_ID int
+);
+
+INSERT INTO Teacher (T_NAME, SKILL)
+VALUES ('Sam','C');
+
+INSERT INTO Teacher (T_NAME, SKILL)
+VALUES ('Sheldon','Finance');
+
+INSERT INTO Teacher (T_NAME, SKILL)
+VALUES ('Oliver','Circuits');
+
+INSERT INTO Teacher (T_NAME, SKILL)
+VALUES ('Emma','Criminology');
+
+INSERT INTO Teacher (T_NAME, SKILL)
+VALUES ('Harry','Poetry');
+
+
+create sequence D_ID
+increment by 1
+start with 1
+MAXVALUE 1000
+NOCACHE
+NOCYCLE;
+
+
+create sequence T_ID
+increment by 11
+start with 11
+MAXVALUE 1000
+NOCACHE
+NOCYCLE;
+
+
+CREATE INDEX D_INDEX
+on Department (D_NAME);
+
+CREATE INDEX T_INDEX
+on Teacher (T_NAME, SKILL);
+
+CREATE SYNONYM D_SYN
+FOR Department;
+
+CREATE SYNONYM T_SYN
+FOR Teacher;
+
+
+3) CREATE VIEW D_VIEW
+AS SELECT Teacher.T_NAME, Department.D_Name
+FROM Teacher, Department 
+WHERE Department.D_ID = Teacher.T_ID;
+

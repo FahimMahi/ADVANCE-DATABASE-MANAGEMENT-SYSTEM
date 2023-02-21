@@ -1,0 +1,152 @@
+Name : Fahim Mahmud Bhuiyan 
+ID: 20-42970-1
+Section: B
+
+
+_______________________(1)______________________________
+
+DECLARE 
+a number(2);
+a_emp EMP%ROWTYPE; 
+
+CURSOR c1 is
+select * into a_emp from emp  where ename = 'JONES';
+BEGIN 
+OPEN c1;
+LOOP 
+FETCH c1 into a_emp;
+exit when c1%NOTFOUND;
+FOR a in 1 .. 3 LOOP 
+dbms_output.put_line ('JONES Salary: ' || a_emp.sal); 
+END LOOP;
+END LOOP; 
+END; 
+/
+
+
+_______________________(2)______________________________
+
+CREATE FUNCTION totaldept
+RETURN number IS 
+totall number(12) := 0; 
+BEGIN 
+SELECT count(*) into totall 
+FROM dept; 
+RETURN totall; 
+END; 
+/ 
+
+
+
+DECLARE 
+c number(12); 
+BEGIN 
+c := totaldept(); 
+dbms_output.put_line('Total No of Department: ' || c); 
+END;
+
+
+_______________________(3)______________________________
+
+CREATE PROCEDURE adjust_sal(
+in_sal IN emp.sal%TYPE
+) 
+IS
+BEGIN
+UPDATE emp
+SET sal ='1600' WHERE sal= in_sal;
+END;
+
+
+begin
+adjust_sal('1600');
+end
+
+
+select * from emp;
+rollback
+
+
+_______________________(4)______________________________
+
+declare 
+gradeid salgrade.grade%type; 
+losall salgrade.losal%type; 
+hisall salgrade.hisal%type;
+
+cursor sal_grade is 
+select * from salgrade;
+
+begin 
+open sal_grade; 
+
+loop 
+fetch sal_grade into gradeid,losall, hisall; 
+exit when sal_grade%notfound; 
+dbms_output.put_line('Grade: '|| gradeid ||' and '|| 'Losal: '|| losall ||' and ' ||' Hisal:'|| hisall); 
+end loop; 
+
+close sal_grade; 
+end 
+/ 
+
+
+_______________________(5)______________________________
+
+declare 
+empmar emp%rowtype; 
+begin 
+select * into empmar from emp
+where empno=7654; 
+dbms_output.put_line('Employee ID: ' || empmar.empno); 
+dbms_output.put_line('Employee Name: ' || empmar.ename); 
+dbms_output.put_line('Employee Job: ' || empmar.job);
+dbms_output.put_line('Employee Hiredate: ' || empmar.hiredate); 
+end 
+/
+
+
+_______________________(6)______________________________
+
+CREATE TRIGGER salgrade_added
+after INSERT ON salgrade
+FOR EACH ROW 
+BEGIN 
+dbms_output.put_line('New Row Added'); 
+END; 
+/ 
+
+select * from salgrade;
+insert into salgrade values ('6','1235','6789');
+rollback
+
+
+_______________________(7)______________________________
+
+CREATE OR REPLACE PACKAGE BODY salgrade_pack AS 
+PROCEDURE display_losal(gradee salgrade.grade%TYPE) IS 
+losall salgrade.losal%TYPE; 
+BEGIN
+SELECT losal INTO losall 
+FROM salgrade
+WHERE grade = gradee; 
+dbms_output.put_line('Losal: '|| losall); 
+END display_losal; 
+
+PROCEDURE display_hisal(gradee salgrade.grade%TYPE) IS 
+hisall salgrade.hisal%TYPE; 
+BEGIN 
+SELECT hisal INTO hisall 
+FROM salgrade
+WHERE grade = gradee; 
+dbms_output.put_line('Hisal: '|| hisall); 
+END display_hisal; 
+
+END salgrade_pack; 
+/
+
+begin
+emp_pack.display_losal('2');
+emp_pack.display_hisal('2');
+end
+
