@@ -1,2 +1,2 @@
 # ADVANCE DATABASE MANAGEMENT SYSTEM
- All the things of ADMS is here.
+All Lab Tasks in ADMS that I have done are here.
